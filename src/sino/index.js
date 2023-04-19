@@ -13,20 +13,20 @@ const MenuSino = () => {
         {id: 3, mesa: 30, Pedido: "Porção batata"},
         {id: 4, mesa: 50, Pedido: "Porção batata"},
         {id: 5, mesa: 30, Pedido: "doce"},
-        {id: 5, mesa: 40, Pedido: "fruta"}
+        {id: 6, mesa: 40, Pedido: "fruta"}
          ]
 
      const [open, setOpen] = useState(false);
-    // const [telaMenu, setTelaMenu] = useState("");
+     const [telaMenu, setTelaMenu] = useState("");
 
-    // useEffect(() => {
-    //     itemVendido()
-    // },[])
+    useEffect(() => {
+        
+         setTelaMenu(Menus)
+    },[])
 
+   
 
-    // const itemVendido = () => {
-    //     setTelaMenu(Menus)
-    // }
+  
 
    
     const menuRef = useRef();
@@ -37,10 +37,8 @@ const MenuSino = () => {
             setOpen(false);
         }
     })
-    //relative
-    //h-20 w-20 object-cover border-4 border-gray-400 rounded-full  cursor-pointer
-    //bg-white p-4 w-52 shadow-lg absolute -left-14 top-24
-    //p-2 text-lg cursor-pointer rounded hover:bg-blue-100
+    
+
 
     return <div className="container">
                 <div className='box'> 
@@ -57,7 +55,7 @@ const MenuSino = () => {
                                 ref= {menuRef}
                                 className="menu">
                                 <ul>
-                                    {Menus.map((menu) => (
+                                    {telaMenu.map((menu) => (
                                             <li 
                                             onClick={() => setOpen(false)}
                                             className='text' key={menu.id}><strong>MESA:</strong> {menu.mesa} <strong>PEDIDO:</strong> {menu.Pedido}</li>
